@@ -152,7 +152,7 @@ public class ImageLoader {
             public void run() {
                 Bitmap bitmap=null;
                 if(isFromNet){
-                    //从网络加载图片的内容
+                    bitmap=ImageLoadUtils.downloadImageByUrl(path,imageView);
                 }else{
                     bitmap=ImageLoadUtils.loadBitmapFromLocal(path,imageView);
                 }
