@@ -75,6 +75,7 @@ public class ListImgsFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        verifyStoragePermission(getActivity());
         mImagePathList=getImagePathFromSD();
         if(mImagePathList!=null){
             mUrlStrs=new String[mImagePathList.size()];
@@ -118,7 +119,6 @@ public class ListImgsFragment extends Fragment {
             ImageView imageView=convertView.findViewById(R.id.id_image);
             imageView.setImageResource(R.drawable.person1);
             Log.e(TAG,getItem(position));
-            verifyStoragePermission(getActivity());
             mImageLoader.loadImage(getItem(position),imageView,false);
             return convertView;
         }
